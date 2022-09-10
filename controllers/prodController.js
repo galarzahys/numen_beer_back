@@ -71,6 +71,27 @@ const updateProd = async (req, res) => {
     };
 }
 
+const updateStock = async (req, res) => {
+
+  const data = {
+    stock: req.body.stock,
+}
+  console.log("Actualizando stock " + req.body)
+
+        const updateResult = await prod.update(
+            data, {
+                where: { id: req.params.id },
+            }
+        )
+    if(updateResult[0] === 0) {
+            throw ({message: 'No existe un producto con este id', status: 404});
+      
+          } else {
+            return res.status(200).json(data);
+          }
+        }
+
+
 const deleteProd = async (req, res) => {
   const newsExists = await prod.findOne({ // find the entry to be deleted 
     where: { id: req.params.id },
@@ -111,4 +132,4 @@ const findProd = async (req, res) => {
   }
 }
 
-module.exports = { insertProds, updateProd, deleteProd, findProd, getAllProds }
+module.exports = { insertProds, updateProd, updateStock, deleteProd, findProd, getAllProds }

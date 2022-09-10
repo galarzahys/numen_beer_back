@@ -6,6 +6,7 @@ const register = (req, res, next) => {
   try{
     // Get the user data
     const {firstName, lastName, email, password} = req.body;
+    console.log("el contenido es" + req.body.firstName)
     // Hash the password
     bcrypt.hash(password, 10, async (err, hashedPassword) => {
       if(err){
