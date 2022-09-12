@@ -15,6 +15,7 @@ const authRouter = require('./routes/auth');
 const productsRouter = require('./routes/admin/prods');
 const contactsRouter = require('./routes/contacts');
 const userRouter = require('./routes/admin/users');
+const prodataRouter = require('./routes/prodata');
 
 const app = express();
 
@@ -39,6 +40,7 @@ app.use('/auth', authRouter);
 app.use('/products', productsRouter);
 app.use('/contacts', contactsRouter);
 app.use('/users', userRouter);
+app.use('/prodata', prodataRouter);
 
 app.use('/docs',swaggerUi.serve, swaggerUi.setup(specs))
 
