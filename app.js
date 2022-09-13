@@ -16,6 +16,7 @@ const productsRouter = require('./routes/admin/prods');
 const contactsRouter = require('./routes/contacts');
 const userRouter = require('./routes/admin/users');
 const prodataRouter = require('./routes/prodata');
+const carrouselRouter = require('./routes/carrousel');
 
 const app = express();
 
@@ -41,6 +42,7 @@ app.use('/products', productsRouter);
 app.use('/contacts', contactsRouter);
 app.use('/users', userRouter);
 app.use('/prodata', prodataRouter);
+app.use('/carrousel', carrouselRouter);
 
 app.use('/docs',swaggerUi.serve, swaggerUi.setup(specs))
 
